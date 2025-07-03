@@ -10,3 +10,17 @@ if __name__ == '__main__':
     print(any(c.islower() for c in s))
     
     print(any(c.isupper() for c in s))
+
+
+'''
+input
+
+Hello123
+
+output
+
+True
+True
+True
+True
+True
