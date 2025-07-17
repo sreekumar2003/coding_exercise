@@ -7,7 +7,7 @@ print(days[daynr])
 
 '''
 input
-08 05 2015
+08 05 2015 MM DD YYYY
 
 ouput
 
