@@ -18,3 +18,20 @@ for _ in range(n):
         
 for i in d:
     print(i,end=" ") 
+
+'''
+input
+
+6
+append 1
+append 2
+append 3
+appendleft 4
+pop
+popleft
+
+output
+
+1 2
+
+'''
