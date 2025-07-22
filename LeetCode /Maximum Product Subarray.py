@@ -23,4 +23,6 @@ Input: nums = [-2,0,-1]
 Output: 0
 Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 
+video link: https://www.youtube.com/watch?v=QaLYIlWyKlE&list=PLTrfx5ibNG1qPvnHyq79xkuAWGdb8ZTZ9&index=8
+
 '''
