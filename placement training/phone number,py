@@ -1,0 +1,34 @@
+def decode_phone_number(s):
+    word_to_digit = {
+        "zero": "0", "one": "1", "two": "2", "three": "3", "four": "4",
+        "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9"
+    }
+
+    words = s.split()
+    result = []
+    i = 0
+
+    while i < len(words):
+        word = words[i]
+
+        if word == "double":
+            i += 1
+            digit = word_to_digit[words[i]]
+            result.extend([digit] * 2)
+        elif word == "triple":
+            i += 1
+            digit = word_to_digit[words[i]]
+            result.extend([digit] * 3)
+        else:
+            result.append(word_to_digit[word])
+        
+        i += 1
+
+    return "".join(result)
+    
+    
+    
+print(decode_phone_number("five one zero two four eight zero double three two"))
+# Output: "5102480332"
+
+print(decode_phone_number("five one zero six triple eight nine six four"))
