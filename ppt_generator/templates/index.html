@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern PPT Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <!-- ── Header ─────────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="logo">⚡ PPT Generator</div>
+      <h1>Turn Any Content Into a&nbsp;<span class="highlight">Modern Presentation</span></h1>
+      <p class="hero-sub">Upload a PPT, PDF, or paste plain text — get a polished slide deck in seconds.</p>
+    </div>
+  </header>
+
+  <!-- ── Main card ──────────────────────────────────────────────── -->
+  <main>
+    <div class="card">
+
+      <!-- Tabs -->
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="upload" role="tab" aria-selected="true">📂 Upload File</button>
+        <button class="tab" data-tab="text" role="tab" aria-selected="false">📝 Paste Text</button>
+      </div>
+
+      <form id="mainForm" enctype="multipart/form-data">
+
+        <!-- Upload tab -->
+        <div class="tab-pane active" id="tab-upload">
+          <div class="drop-zone" id="dropZone">
+            <input type="file" id="fileInput" name="file"
+                   accept=".pptx,.ppt,.pdf,.txt,.md" hidden />
+            <div class="drop-icon">📁</div>
+            <p class="drop-label">Drag &amp; drop your file here</p>
+            <p class="drop-sub">Supported: .pptx &nbsp;|&nbsp; .pdf &nbsp;|&nbsp; .txt &nbsp;|&nbsp; .md</p>
+            <button type="button" class="btn-outline" id="browseBtn">Choose File</button>
+            <p class="file-name" id="fileName"></p>
+          </div>
+        </div>
+
+        <!-- Text tab -->
+        <div class="tab-pane" id="tab-text">
+          <label class="field-label" for="plainText">Your Content</label>
+          <textarea id="plainText" name="plain_text"
+                    placeholder="Paste your text here. Use blank lines between topics to create separate slides…"
+                    rows="12"></textarea>
+        </div>
+
+        <!-- Theme selector -->
+        <div class="options-row">
+          <div class="option-group">
+            <label class="field-label">Theme</label>
+            <div class="theme-pills">
+              <label class="pill active" data-theme="dark">
+                <input type="radio" name="theme" value="dark" checked hidden />
+                <span class="pill-swatch dark"></span> Dark
+              </label>
+              <label class="pill" data-theme="light">
+                <input type="radio" name="theme" value="light" hidden />
+                <span class="pill-swatch light"></span> Light
+              </label>
+              <label class="pill" data-theme="minimal">
+                <input type="radio" name="theme" value="minimal" hidden />
+                <span class="pill-swatch minimal"></span> Minimal
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button type="button" class="btn-secondary" id="previewBtn">
+            👁 Preview Slides
+          </button>
+          <button type="submit" class="btn-primary" id="generateBtn">
+            ✨ Generate &amp; Download
+          </button>
+        </div>
+
+      </form>
+
+      <!-- Error banner -->
+      <div class="error-banner" id="errorBanner" hidden></div>
+
+    </div><!-- .card -->
+
+    <!-- ── Slide preview panel ────────────────────────────────── -->
+    <section class="preview-section" id="previewSection" hidden>
+      <h2 class="section-title">Slide Preview <span id="slideCount"></span></h2>
+      <div class="slide-grid" id="slideGrid"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Modern PPT Generator &nbsp;|&nbsp; Built with Python &amp; python-pptx</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
